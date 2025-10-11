@@ -1,0 +1,45 @@
+.product_main{
+    width: 350px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.205);
+}
+
+.product_form{
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+
+.product_form input,textarea,button{
+    padding: 10px;
+}
+.product_form h2{
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.product_form textarea{
+    resize: none;
+}
+
+.product_form button{
+    cursor: pointer;
+    background-color: rgb(240, 74, 13);
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+}
+
+.category-options{
+    padding: 10px;
+}

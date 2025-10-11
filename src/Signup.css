@@ -1,0 +1,89 @@
+.signup_box{
+    width: 400px;
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid #ccc;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+
+}
+
+.signup_item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.signup_input,.signup_btn{
+padding: 10px;
+border-radius: 7px;
+border: none;
+border: 1px solid grey;
+
+}
+
+.signup_btn{
+background-color: rgb(245, 115, 68);
+color: white;
+cursor: pointer;
+}
+.bar{
+    width: 100%;
+    height: 2px;
+    background-color: grey;
+    display: inline-block;
+}
+.login_or{
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    background-color: white;
+    color: grey;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+.login_option{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 10px;
+    font-style: italic;
+}
+.login_icons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.login_icon{
+    height: 28px;
+    width: 28px;
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.login_navigate{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.signup_header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

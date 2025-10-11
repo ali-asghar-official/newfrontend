@@ -1,0 +1,46 @@
+.product_table table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table_head{
+    background-color: rgb(238, 109, 62);
+}
+
+th{
+ padding: 12px;
+ text-align: left;
+}
+
+.table_row{
+background-color: #f3efef;
+}
+
+.table_row td{
+    padding: 12px;
+}
+.product_table_image{
+    height: 60px;
+    width: 60px;
+    overflow: hidden;
+}
+
+/* .product_table_image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+} */
+
+.product_list_action{
+    font-size: 18px;
+    color: grey;
+    cursor: pointer;
+}
+
+.product_list_action:hover{
+    color: red;
+}
+
+.table_row:nth-of-type(even){
+    background-color: rgb(226, 222, 222);
+}

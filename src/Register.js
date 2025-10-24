@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom'
 const Register = () => {
 
 
+
+
 const [name,setName] = useState()
 const [email,setEmail] = useState()
 const [password,setPassword] = useState()
@@ -36,6 +38,10 @@ const response = await fetch('http://localhost:5000/user/register',{
 
 const result = await response.json()
 toast.success(result.message)
+console.log("Name:",name)
+console.log("Email:",email)
+console.log("Password:",password)
+
 
    
 } catch (error) {
@@ -50,39 +56,39 @@ toast.success(result.message)
 
 
   return (
-    <div className='signup_page'>
-        <form onSubmit={saveHandler}>
-    <div className='signup_box'>
-        <p className='signup_header'>CREATE NEW ACCOUNT</p>
+      <div className='login_page'>
+            <form onSubmit={saveHandler}>
+      <div className='login_box'>
+            <p className='login_header'>CREATE NEW ACCOUNT</p>
   
-           <div className='signup_item'>
-          <label>NAME</label>
-          <input onChange={nameChange} required className='signup_input' type='text'/>
-          </div>
-           <div className='signup_item'>
-          <label>Email</label>
-          <input onChange={emailChange} required className='signup_input' type='email'/>
-          </div>
-          <div className='signup_item'>
-          <label>Password</label>
-          <input onChange={passwordChange} required className='signup_input' type='password' />
-          </div>
+                <div className='login_item'>
+               <label>NAME</label>
+               <input onChange={nameChange} required className='login_input' type='text'/>
+               </div>
+                <div className='login_item'>
+               <label>Email</label>
+               <input onChange={emailChange} required className='login_input' type='email'/>
+               </div>
+               <div className='login_item'>
+               <label>Password</label>
+               <input onChange={passwordChange} required className='login_input' type='password' />
+               </div>
         
-          <button type='submit' className='signup_btn'>SIGN UP</button>
+               <button type='submit' className='login_btn'>SIGN UP</button>
           
     
-          <div className='login_option'>
-          <Link to='/Signup'>Already have an Account ?</Link>
-          </div>
-          <div className='login_navigate'>
+               <div className='login_option'>
+               <Link to='/signup'>Already have an Account ?</Link>
+               </div>
+               <div className='login_navigate'>
          
          
-          </div>
+               </div>
 
           
-        </div>
-        </form>
-      </div>
+            </div>
+            </form>
+         </div>
   )
 }
 

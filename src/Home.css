@@ -1,11 +1,10 @@
+/* =========================================================
+   🌐 GLOBAL LAYOUT
+========================================================= */
 .container {
   display: flex;
 }
 
-.main-content {
-  flex: 3;
-  /* padding: 20px; */
-}
 
 .side-panel {
   flex: 1;
@@ -33,199 +32,71 @@
   color: #23527c;
 }
 
-.main-heading{
+.main-heading {
   color: orangered;
   font-size: 20px;
   font-weight: 500;
   text-transform: uppercase;
 }
 
-
-.header{
-grid-area: header;
-  background: lightblue;  
-}
-
-.sidebar{
-  grid-area: sidebar;
-  background: lightgreen;
-}
-.main{
-grid-area: main;
-background: lightcoral;
-}
-
-.footer{
-  grid-area: footer;
-  background-color: lightpink;
-}
-
-.gallery{
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-background-color: aqua;
-}
-
-.item{
+/* =========================================================
+   🧭 HEADER / NAVBAR
+========================================================= */
+.navbar {
   display: flex;
-  border: 1px solid black;
-  justify-content: center;
-
+  justify-content: space-between;
+  background-color: aqua;
+  gap: 20px;
 }
 
-@media (max-width:900px){
-  .gallery{
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width:600px){
-  .gallery{
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
-
-.navbar{ display: flex; background-color: aqua; gap: 20px; justify-content: space-between; } .left{ display: flex; flex: 1; justify-content: left; gap: 15px; background-color: aquamarine; } .right{ display: flex; flex: 1; justify-content: right; background-color: bisque; gap: 15px; } .logo{ text-align: center; background-color: cadetblue; }
-
- footer {
-  position: relative;
-  width: 100%;
-  background-color:rgb(201, 245, 243);
-  color: black;
-  padding: 20px;
-  display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-auto-rows: minmax(200px,auto);
-        grid-auto-columns: minmax(200px,auto);
-}
-.col{padding: 20px;
-text-decoration: none;}
-
-
-/* table one designing */
-  .img-col{padding: 50px;}
-  .landscape-box {
-  background-color: none;
+.left {
   display: flex;
-  align-items: center;
-  padding: 35px;
-  color: white;
-}
-.landscape-text {
   flex: 1;
-  background-color: rgb(61, 61, 240);
-  height: 505px;
-  width: 90%;
-  text-align: left;
-  padding-left: 100px;
-  padding-right: 430px;
-  padding-top: 10%;
-  padding-bottom: 10%;
-}
-.container-col{
-  padding: 35px;}
-  .text-col2{padding: 50px;
-  padding-left: 20px;
-width: 600px;}
-.text-col{padding: 100px;}
-
-
-
-  .container-pic{width: 100%;
-  height: 650;
-  padding-left: 40px;
-background-color: lightseagreen}
-  .sidepic img {border-radius: 10px;}
-
-
-  /* gallary designing */
-
-  .two-pic-col{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
-  padding: 50px;
-  }
-  .two-pic-col img{
-    width: 100%;
-  height: 100%;
-  object-fit: cover;
-  }
-  .four-pic-col{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
-  padding-left: 50px;
-  padding-right: 50px;
-  }
-
-  .four-pic-col img{
-    width: 100%;
-  height: 100%;
-  object-fit: cover;
-  }
-
-
-    /* Boxes grid designing */
-  .container-grid{
-    padding: 40px;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(340px,1fr));
-        grid-gap: 20px;
-        grid-auto-rows: minmax(200px,auto);
-        grid-auto-columns: minmax(200px,auto);
-        column-gap: 20px;
-        background-color: whitesmoke;
-    }
-    
-    .box{border: black 5px;
-    margin: auto;
-  padding: 15px;
-background-color: white;}
-
-/* main header designing */
-  .box2-text{text-align: center;
-  max-width: 80%;
-margin: auto;}
-.btn-2{width: 150px;
-margin: auto;}
-  h2{font-size: 60px;
-  text-align: center;}
-  h1{margin-top: 100px;
-    font-size: 60px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-font-weight: bold;}
-    .box-mid{width: 35%;
-    color: black;
-margin: 35px;
+  justify-content: left;
+  gap: 15px;
+  background-color: aquamarine;
 }
 
-.box-2-heading{
-  max-width: 100%;
-  border: 5px black;
-  margin: auto;
+.right {
+  display: flex;
+  flex: 1;
+  justify-content: right;
+  gap: 15px;
+  background-color: bisque;
 }
 
+.logo {
+  text-align: center;
+  background-color: cadetblue;
+}
+
+/* =========================================================
+   🦸 HERO SECTION — Fully Responsive
+========================================================= */
 
 .hero-section {
   height: 500px;
   display: flex;
   align-items: center;
-  padding-left: 60px;
+  justify-content: flex-start;
+  padding: 0 60px;
   color: black;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-bottom-right-radius: 100px;
-
-
   transition: background-image 2s ease-in-out;
 }
+
 .hero-content {
-  max-width: 500px;
+  max-width: 600px;
   color: black;
   animation: slideInLeft 1.5s ease forwards;
   opacity: 0;
+}
+
+.hero-content-heading{
+  text-align: left;
 }
 
 @keyframes slideInLeft {
@@ -250,29 +121,97 @@ margin: 35px;
   line-height: 1.5;
 }
 
-.product-heading{
-  color: lightseagreen;
-  font-size: 30px;
-  display: flex;
-  text-align: center;
-  justify-content: center;
+.hero-btn {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 10px 25px;
+  transition: background 0.3s ease;
 }
 
-.middle-heading{
-  color: lightseagreen;
-  font-size: 50px;
+.hero-btn:hover {
+  background-color: #333;
 }
 
-.hero-btn{
-background-color: black;
-color: white;
-border: none;
-border-radius: 5px;
-text-transform: uppercase;
-cursor: pointer;
+/* =========================================================
+   📱 Responsive Adjustments
+========================================================= */
 
+/* Tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .hero-section {
+    height: 450px;
+    padding: 0 40px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
 }
 
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    height: auto;
+    border-bottom-right-radius: 60px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    animation: none;
+    opacity: 1;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+    margin: 10px 0 20px;
+  }
+
+  .hero-btn {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra Small Devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 30px 15px;
+    border-bottom-right-radius: 40px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+
+  .hero-btn {
+    font-size: 0.85rem;
+    padding: 8px 18px;
+  }
+}
+
+/* =========================================================
+   📦 FEATURE BOXES (below hero)
+========================================================= */
 .boxes-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -293,10 +232,15 @@ cursor: pointer;
 
 .box:hover {
   transform: translateY(-8px);
-  
 }
 
-/* 📱 Responsive breakpoints */
+.box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* or 'cover' if you want full fill */
+}
+
+/* Responsive grid */
 @media (max-width: 1024px) {
   .boxes-container {
     grid-template-columns: repeat(2, 1fr);
@@ -308,35 +252,42 @@ cursor: pointer;
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ================================
+   🧩 MID BOXES — Responsive Design
+================================ */
+
 .mid-boxes-container {
   display: flex;
-  flex-wrap: wrap;           /* Allows boxes to move below each other on small screens */
-  gap: 20px;                 /* Space between boxes */
-  justify-content: center;   /* Center the boxes horizontally */
-  padding: 20px;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  align-items: stretch;
+  padding: 40px 20px;
+  background-color: #f8fafc;
 }
 
-.mid-box-1,.mid-box-2 {
-  flex: 1 1 300px;      
+/* ✅ Common box styling */
+.mid-box-1,
+.mid-box-2 {
+  flex: 1 1 450px;
+  min-width: 300px;
   color: white;
   text-align: center;
   padding: 40px;
   height: 400px;
   font-size: 20px;
-  border-radius: 12px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  border-radius: 16px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.mid-box-1:hover {
-  transform: translateY(-5px);
-}
-
-.mid-box-2:hover {
-  transform: translateY(-5px);
-}
-
-
+/* ✅ Image backgrounds */
 .mid-box-1 {
   background-image: url("./Asset/banner-1.png");
 }
@@ -345,115 +296,574 @@ cursor: pointer;
   background-image: url("./Asset/banner-2.png");
 }
 
-.box-1-content{
-  text-align: left;
-  max-width: 50%;
-  color: black;
-  animation: slideInLeft 1.5s ease forwards;
-  opacity: 0;
-  margin-top: 250px;
+/* ✅ Hover animation */
+.mid-box-1:hover,
+.mid-box-2:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-.shopnow{
+/* ✅ Content inside box */
+.box-1-content {
+  text-align: left;
+  max-width: 55%;
+  color: black;
+  animation: slideInLeft 1.2s ease forwards;
+  opacity: 0;
+  margin-top: 100px;
+}
+
+/* ✅ Text animation */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ✅ Shop now button/text */
+.shopnow {
   font-weight: 500;
   cursor: pointer;
   text-decoration: underline;
+  color: #0f172a;
+  transition: color 0.3s ease;
 }
 
-.shopnow:hover{
-  font-weight: 1000;
+.shopnow:hover {
+  font-weight: 600;
+  color: #0ea5e9;
 }
 
-.footer-section-1{
-  max-width: 300px;
+/* ================================
+   📱 RESPONSIVE BREAKPOINTS
+================================ */
+
+/* Tablet screens (2 boxes stacked side-by-side or slightly reduced height) */
+@media (max-width: 992px) {
+  .mid-boxes-container {
+    gap: 20px;
+    padding: 30px 15px;
+  }
+
+  .mid-box-1,
+  .mid-box-2 {
+    flex: 1 1 100%;
+    height: 350px;
+    padding: 30px;
+  }
+
+  .box-1-content {
+    max-width: 65%;
+    margin-top: 100px;
+  }
 }
 
-.icon{
-  font-size: 25px;
-  cursor: pointer;
+/* Mobile screens (1 box per row, centered content) */
+@media (max-width: 600px) {
+  .mid-boxes-container {
+    flex-direction: column;
+    padding: 20px 10px;
+  }
+
+  .mid-box-1,
+  .mid-box-2 {
+    height: 300px;
+    text-align: center;
+    padding: 25px;
+    background-position: top;
+  }
+
+  .box-1-content {
+    max-width: 100%;
+    margin-top: 100px;
+    text-align: center;
+    color: #111;
+  }
+
+  .shopnow {
+    display: inline-block;
+    margin-top: 10px;
+  }
 }
 
+/* =========================================================
+   🖼️ GALLERY SECTIONS
+========================================================= */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: aqua;
+}
+
+.item {
+  display: flex;
+  border: 1px solid black;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.two-pic-col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 50px;
+}
+
+.two-pic-col img,
+.four-pic-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.four-pic-col {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 0 50px;
+}
+
+/* =========================================================
+   🧊 PRODUCT GRID
+========================================================= */
+.container-grid {
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+  background-color: whitesmoke;
+}
+
+.box2-text {
+  text-align: center;
+  max-width: 80%;
+  margin: auto;
+}
+
+h1, h2 {
+  text-align: center;
+  font-weight: bold;
+}
+
+h1 {
+  margin-top: 100px;
+  font-size: 60px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+.btn-2 {
+  width: 150px;
+  margin: auto;
+}
+
+.product-heading {
+  color: lightseagreen;
+  font-size: 30px;
+  text-align: center;
+}
+
+.middle-heading {
+  color: lightseagreen;
+  font-size: 50px;
+}
+
+/* ================================
+   🌀 MARQUEE — Responsive Version
+================================ */
 .marquee {
   position: relative;
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
-  background: white1;
+  background: white;
   color: black;
   font-size: 20px;
-  padding: 10px;
-  border: 1px solid black;
+  padding: 12px 0;
+  border: 1px solid #000;
   border-radius: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Moving text */
 .marquee p {
   display: inline-block;
+  padding-left: 100%;
   animation: moveText 35s linear infinite;
 }
 
+/* Animation keyframes */
 @keyframes moveText {
   0% {
-    transform: translateX(100%);
+    transform: translateX(0);
   }
   100% {
     transform: translateX(-100%);
   }
 }
 
-.follow{
+/* ================================
+   📱 RESPONSIVE BREAKPOINTS
+================================ */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .marquee {
+    font-size: 18px;
+    padding: 10px 0;
+  }
+
+  .marquee p {
+    animation-duration: 30s; /* slightly faster on smaller screens */
+  }
+}
+
+/* Mobiles */
+@media (max-width: 600px) {
+  .marquee {
+    font-size: 16px;
+    padding: 8px 0;
+    border-radius: 10px;
+  }
+
+  .marquee p {
+    animation-duration: 25s; /* faster scrolling on small screens */
+  }
+}
+
+/* Very small screens */
+@media (max-width: 400px) {
+  .marquee {
+    font-size: 14px;
+    padding: 6px 0;
+  }
+
+  .marquee p {
+    animation-duration: 20s;
+  }
+}
+
+.follow {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.icon {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+/* =========================================================
+   💠 LOWER BOXES SECTION — Attractive & Responsive
+========================================================= */
 .lower-boxes-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 20px;
-  border-radius: 25px;
-}
-
-.lower-box-1,
-.lower-box-2 {
-  flex: 1 1 45%; 
- 
-}
-
-.lower-box-1{
-  height: 381px;
-  background-color: rgb(242, 248, 250);
-  text-align: left !important;
-  display: flex;
-  flex-direction: column; 
-  align-items: flex-start;
   justify-content: center;
-  padding-left: 15px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-.lower-box-2{
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 40px 8%;
+  background: #f9fafb;
 }
 
-@media (max-width: 768px) {
+/* -----------------------------
+   🔹 Left Offer Box
+----------------------------- */
+.lower-box-1 {
+  flex: 1 1 45%;
+  background: linear-gradient(135deg, #00acc1, #0097a7);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  padding: 40px 20px;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  min-height: 360px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.lower-box-content {
+  max-width: 300px;
+}
+
+.offer-text {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.offer-heading {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.lower-btn {
+  background-color: white;
+  color: #006064;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.lower-btn:hover {
+  background-color: #004d40;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Hover animation for the box */
+.lower-box-1:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* -----------------------------
+   🔹 Right Image Box
+----------------------------- */
+.lower-box-2 {
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  min-height: 360px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.lower-box-2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform 0.4s ease;
+}
+
+.lower-box-2:hover img {
+  transform: scale(1.05);
+}
+
+.lower-box-2:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* -----------------------------
+   📱 Responsive Styles
+----------------------------- */
+
+/* Tablets */
+@media (max-width: 992px) {
   .lower-boxes-container {
-    flex-direction: column;
+    padding: 30px 5%;
   }
 
   .lower-box-1,
   .lower-box-2 {
     flex: 1 1 100%;
-
   }
 
-
-
-
-  
+  .offer-heading {
+    font-size: 2.5rem;
+  }
 }
 
+/* Mobiles */
+@media (max-width: 600px) {
+  .lower-boxes-container {
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .lower-box-1 {
+    padding: 30px 15px;
+  }
+
+  .offer-heading {
+    font-size: 2rem;
+  }
+
+  .offer-text {
+    font-size: 1rem;
+  }
+
+  .lower-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================================================
+   🦶 FOOTER
+========================================================= */
+/* =========================================================
+   🦶 FOOTER SECTION — Modern & Responsive
+========================================================= */
+footer {
+  width: 100%;
+  background-color: #0f172a; /* Deep navy */
+  color: #e2e8f0; /* Light gray text */
+  padding: 60px 8%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Section titles */
+footer h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #38bdf8; /* Aqua accent */
+  margin-bottom: 15px;
+}
+
+/* Paragraph and links */
+footer p,
+footer li,
+footer a {
+  font-size: 0.95rem;
+  color: #e2e8f0;
+  line-height: 1.6;
+}
+
+footer a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #38bdf8; /* Hover accent */
+}
+
+/* Footer lists */
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer li {
+  margin-bottom: 10px;
+}
+
+/* Social icons */
+.icon {
+  font-size: 24px;
+  margin-right: 12px;
+  color: #38bdf8;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+  color: #60a5fa;
+}
+
+/* -----------------------------------
+   📱 Responsive Layouts
+----------------------------------- */
+
+/* Tablet screens */
+@media (max-width: 992px) {
+  footer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 40px 5%;
+  }
+
+  footer h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+  footer {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 20px;
+    padding: 30px 6%;
+  }
+
+  footer h3 {
+    font-size: 1.2rem;
+  }
+
+  footer p,
+  footer li,
+  footer a {
+    font-size: 0.9rem;
+  }
+
+  .icon {
+    font-size: 22px;
+    margin-right: 8px;
+  }
+}
+
+
+.col {
+  padding: 20px;
+  text-decoration: none;
+}
+
+/* =========================================================
+   🌄 MISC / IMAGE CONTAINERS
+========================================================= */
+.container-pic {
+  width: 100%;
+  padding-left: 40px;
+  background-color: lightseagreen;
+}
+
+.sidepic img {
+  border-radius: 10px;
+}
+
+.container-col {
+  padding: 35px;
+}
+
+.text-col,
+.text-col2 {
+  padding: 50px;
+}
+
+.text-col2 {
+  width: 600px;
+  padding-left: 20px;
+}
 

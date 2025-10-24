@@ -48,22 +48,21 @@ const [currentImage, setCurrentImage] = useState(0);
  
     <>
       {/* First Section */}
-       <section
-      className="hero-section"
-      style={{
-        backgroundImage: `url(${images[currentImage]})`,
-      }}
-    >
-      <div className="hero-content">
-        <h1>Ecommerce Store</h1>
-        <p>
-      Discover a wide range of quality products at unbeatable prices. 
-      From fashion to electronics, we bring everything you need right to your doorstep.
-    </p>
-    <br/>
-     <button className='hero-btn'>Collections</button>
-      </div>
-    </section>
+        {/* Hero Section */}
+      <section
+        className="hero-section"
+        style={{ backgroundImage: `url(${images[currentImage]})` }}
+      >
+        <div className="hero-content">
+          <h1 className='hero-content-heading'>E-Commerce Store</h1>
+          <p>
+            Discover a wide range of quality products at unbeatable prices.
+            From fashion to electronics, we bring everything you need right to
+            your doorstep.
+          </p>
+          <button className="hero-btn">Collections</button>
+        </div>
+      </section>
 
       {/* Second Section */}
       <div className="boxes-container">
@@ -118,16 +117,18 @@ const [currentImage, setCurrentImage] = useState(0);
         <br/>
 
 <div className="lower-boxes-container">
-  <div className='lower-box-1'>
-    <br/>
-    <p>For Online Purchase</p>
-    <h2 className='off'>50% OFF</h2>
-    <br/>
-    <button className='hero-btn'>Collections</button>
+  {/* Left Side - Offer Box */}
+  <div className="lower-box-1">
+    <div className="lower-box-content">
+      <p className="offer-text">For Online Purchase</p>
+      <h2 className="offer-heading">50% OFF</h2>
+      <button className="lower-btn">Shop Collection</button>
+    </div>
   </div>
 
+  {/* Right Side - Image Box */}
   <div className="lower-box-2">
-    <img className="lower-box-2" src={banner222}/>
+    <img src={banner222} alt="Sale Banner" />
   </div>
 </div>
 
@@ -163,20 +164,20 @@ const [currentImage, setCurrentImage] = useState(0);
         <div className="footer-section-2">
           <h3>Quick Links</h3>
           <ul>
-            <li><a style={{color:'black'}} href="#">Home</a></li>
-            <li><a style={{color:'black'}} href="#">About US</a></li>
-            <li><a style={{color:'black'}} href="#">Amenities</a></li>
-            <li><a style={{color:'black'}} href="#">Pricing</a></li>
-            <li><a style={{color:'black'}} href="#">Contact</a></li>
+            <li><a  href="#">Home</a></li>
+            <li><a  href="#">About US</a></li>
+            <li><a  href="#">Amenities</a></li>
+            <li><a  href="#">Pricing</a></li>
+            <li><a  href="#">Contact</a></li>
           </ul>
         </div>
         <div className="footer-section-3">
           <h3>Important Links</h3>
           <ul>
-            <li><a style={{color:'black'}} href="#">Terms & Conditions</a></li>
-            <li><a style={{color:'black'}} href="#">Legal</a></li>
-            <li><a style={{color:'black'}} href="#">Business</a></li>
-            <li><a style={{color:'black'}} href="#">Partners</a></li>
+            <li><a  href="#">Terms & Conditions</a></li>
+            <li><a  href="#">Legal</a></li>
+            <li><a  href="#">Business</a></li>
+            <li><a  href="#">Partners</a></li>
           </ul>
         </div>
         <div className="footer-section-4">

@@ -106,7 +106,7 @@ const id = params.get('id')
 
 const getSingleProduct = async()=>{
 
-  const response = await fetch('http://localhost:5000/single/product?id='+id,{
+  const response = await fetch('http://localhost:5000/product/single?id='+id,{
     method: 'GET',
     headers:{'Content-Type':'application/json'}
   })

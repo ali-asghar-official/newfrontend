@@ -1,107 +1,200 @@
-.nav-container{
-    display: flex;
-    padding: 8px;
-    /* background-color: rgba(235, 68, 17, 0.918); */
-    background-color: rgb(59, 211, 203);
-    /* margin-top: 3px; */
-    margin-bottom: 2px;
-    align-items: center;
-}
-
-
-.nav-logo{
-    color: white;
-    height: 50px;
-    padding-left: 50px;
-}
-
-.Search_input{
-    width: 40%;
-    height: 40px;
-    border: none;
-    outline: none;
-    padding-left: 10px;
-    margin-left: 100px;
-}
-
-.search-btn{
-height: 40px;
-width: 40px;
-background-color: rgb(144, 245, 240);
-padding: 5px;
-cursor: pointer;
-color:lightseagreen;
-}
-
-.cart-btn{
-    height: 40px;
-width: 40px;
-color: white;
-margin-left: 20px;
-cursor: pointer;
-margin-right: 40px;
-}
-.nav-item{
-    color: white;
-    font-size: 18px;
-    text-decoration: none;
-
-}
-.nav-items{
-display: flex;
-gap: 10px;
-font-weight: 500;
-color: white;
-}
-
-.nav-item:hover{
-    color: lightgray;
-    text-decoration: underline;
-}
-
-.up-nav{
-    background-color: black;
-    color: white;
-    height: 45px;
-}
-
-
-.up-nav{
+.nav-container {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  padding: 8px 20px;
+  background-color: #111b3a;
+  position: relative;
+}
+
+/* Logo */
+.nav-logo img {
+  height: 50px;
+}
+
+/* Center Search */
+.nav-center {
+  display: flex;
   align-items: center;
+  flex: 1;
+  justify-content: center;
+  max-width: 500px;
+}
+
+.Search_input {
+  width: 100%;
+  height: 40px;
+  border: none;
+  outline: none;
+  padding-left: 10px;
+  border-radius: 4px;
+}
+
+.search-btn {
+  height: 40px;
+  width: 40px;
+  background-color: #1C2541;
   padding: 5px;
+  cursor: pointer;
+  color: #FFFFFF;
+  border-radius: 5px;
 }
 
-.up-nav-item-1{
-      display: flex;
+.search-btn:hover{
+  background-color: #5BC0BE;
+}
+
+/* Right Section */
+.nav-right {
+  display: flex;
   align-items: center;
-  gap: 10px;
-
+  gap: 15px;
 }
 
-.up-nav-item-2{
-      display: flex;
+.cart-btn {
+  height: 35px;
+  width: 35px;
+  color: white;
+  cursor: pointer;
+}
+
+.cart-btn:hover {
+  color: #5BC0BE;
+}
+
+/* Cart wrapper and badge */
+.cart-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.cart-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: inline-flex;
   align-items: center;
-
+  justify-content: center;
 }
-
-
-.up-nav-item-3{
-      display: flex;
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #ff4d4f;
+  color: white;
+  font-size: 12px;
+  height: 18px;
+  min-width: 18px;
+  padding: 0 5px;
+  border-radius: 12px;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  font-weight: 700;
 }
 
-.up-nav p {
-  margin: 0;          
-  line-height: 1;     
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
 }
 
-.up-nav svg {
-  display: block;     
-  font-size: 25px;    
+/* Navigation Items */
+.nav-items {
+  display: flex;
+  gap: 15px;
+  font-weight: 500;
 }
-.drop-lang{
-    background-color: black;
+
+.nav-item {
+  font-size: 18px;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+  color: #5BC0BE;
+  text-decoration: underline;
+}
+
+/* ==================== Responsive ==================== */
+
+@media (max-width: 900px) {
+  .nav-center {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-items {
+    flex-direction: column;
+    background-color: rgb(59, 211, 203);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 15px;
+    display: none;
+    border-radius: 0 0 10px 10px;
+    z-index: 1000;
+  }
+
+  .nav-items.open {
+    display: flex;
+  }
+
+  .nav-item {
+    padding: 10px 0;
+    text-align: right;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .nav-logo img {
+    height: 40px;
+  }
+
+  .cart-btn {
+    height: 30px;
+    width: 30px;
+  }
+
+  .hamburger {
+    font-size: 20px;
+  }
+}
+.logout-button{
+  background-color: #111b3a;
+  height: 28px;
+  color: white;
+  margin: 0;
+  outline: none;
+  border: none;
+  padding: 2px;
+  font-weight: 700;
+  font-size: 15px;  
+  border: 1px solid white;
+}
+
+.user-name {
+  margin-right: 15px;
+  font-weight: bold;
+  font-size: 14px;
+  color: white;
 }

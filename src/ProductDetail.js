@@ -1,62 +1,71 @@
-import React from 'react'
-import {useEffect, useState} from 'react';
+import React, { useEffect, useState, useContext } from 'react'
 import './ProductDetail.css'
 import { FaStar } from "react-icons/fa";
-import CartDrawer from "./CartDrawer";
+import toast from 'react-hot-toast'
+import { CartContext } from './CartContext'
+import { useLocation } from 'react-router-dom'
 
 const ProductDetail = () => {
 
-const [cart, setCart] = useState([]);
-const [isCartOpen, setIsCartOpen] = useState(false);
+const { addToCart } = useContext(CartContext);
 
-const addToCart = () => {
-  let newCart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  // check if product already in cart
-  const existingIndex = newCart.findIndex((item) => item._id === product._id);
-
-  if (existingIndex >= 0) {
-    newCart[existingIndex].quantity += 1; // increase qty
-  } else {
-    newCart.push({ ...product, quantity: 1 }); // add with qty = 1
-  }
-
-  localStorage.setItem("cart", JSON.stringify(newCart));
-  setCart(newCart);
-  setIsCartOpen(true);
+const addToCartHandler = () => {
+  if (!product) return;
+  addToCart(product);
+  toast.success('Added to cart');
 };
 
 
-const params = new URLSearchParams(window.location.search)
+const { search } = useLocation()
+const params = new URLSearchParams(search)
 const id = params.get('id')
-const [product,setProduct] = useState()
 
-const getProduct = async()=>{
+const [product, setProduct] = useState(null)
+const [loading, setLoading] = useState(false)
+const [error, setError] = useState(null)
 
-try {
+const getProduct = async () => {
+    if (!id) {
+        setError('No product id provided')
+        setProduct(null)
+        setLoading(false)
+        return
+    }
 
-const response = await fetch('http://localhost:5000/single/product?id='+id,{
-    method:'GET',
-    headers:{'Content-Type':'application/json'}
-})
+    setLoading(true)
+    setError(null)
+    try {
+            const response = await fetch('http://localhost:5000/product/single?id=' + id, {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' }
+        })
 
-const result = await response.json()
-console.log(result)
-setProduct(result.item)
-    
-} catch (error) {
-    console.log(error)
+        if (!response.ok) {
+            const text = await response.text()
+            throw new Error(`Server responded ${response.status}: ${text}`)
+        }
+
+        const result = await response.json()
+        console.log('Product detail result:', result)
+        setProduct(result.item || null)
+    } catch (err) {
+        console.error('Failed to load product:', err)
+        setError(err.message || 'Failed to load product')
+        setProduct(null)
+    } finally {
+        setLoading(false)
+    }
 }
 
-}
-
-useEffect(()=>{
+useEffect(() => {
+    // re-run when the search (id) changes
     getProduct()
-},[])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [search])
 
-if (!product) {
-    return <div>Loading...</div>;
-  }
+if (loading) return <div>Loading...</div>
+if (error) return <div style={{ color: 'red' }}>{error}</div>
+if (!product) return <div>Product not found.</div>
 
 
 
@@ -118,18 +127,13 @@ A short product description is a concise marketing copy highlighting a product's
 
 
 
-<button onClick={addToCart}>ADD TO CART</button>
+<button onClick={addToCartHandler}>ADD TO CART</button>
 <p className='productdisplay-right-category'><span>Category:</span>Women, T-Shirt</p>
    
     </div>
     </div>
     </div>
-    <CartDrawer
-  isOpen={isCartOpen}
-  onClose={() => setIsCartOpen(false)}
-  cart={cart}
-  setCart={setCart}
-/>
+   
    </div>
 
 

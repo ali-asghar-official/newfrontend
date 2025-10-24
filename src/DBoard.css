@@ -1,0 +1,47 @@
+.dashboard {
+  max-width: 750px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+.dashboard-title {
+  text-align: center;
+  color: #0B132B;
+  margin-bottom: 20px;
+  font-size: 26px;
+  letter-spacing: 0.5px;
+}
+
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dashboard-table th,
+.dashboard-table td {
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 15px;
+}
+
+.dashboard-table th {
+  background: #0B132B;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.dashboard-table tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.dashboard-table tr:hover {
+  background: #e2e8f0;
+  transition: 0.3s;
+}

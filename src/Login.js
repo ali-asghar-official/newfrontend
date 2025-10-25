@@ -3,6 +3,7 @@ import './Login.css'
 import toast from 'react-hot-toast'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from './AuthContext'
+import { API_URL } from './config'
 
 const Login = () => {
   const { login } = useContext(AuthContext)
@@ -23,7 +24,7 @@ const Login = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/users/login', {
+  const response = await fetch(`${API_URL}/api/users/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })

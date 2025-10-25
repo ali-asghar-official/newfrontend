@@ -2,6 +2,7 @@ import React from 'react'
 import {useState} from 'react'
 import toast from 'react-hot-toast'
 import { Link } from 'react-router-dom'
+import { API_URL } from './config'
 
 
 const Register = () => {
@@ -30,7 +31,7 @@ const saveHandler = async(event)=>{
 
 try {
 
-const response = await fetch('http://localhost:5000/user/register',{
+const response = await fetch(`${API_URL}/user/register`,{
    method:'POST',
    body:JSON.stringify({name,email,password}),
    headers:{'Content-Type':'application/json'}

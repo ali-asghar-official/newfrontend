@@ -2,6 +2,7 @@ import SingleProduct from "./SingleProduct";
 import "./Product.css";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
+import { API_URL } from './config'
 
 const Product = () => {
   const [products, setProducts] = useState([]);
@@ -11,10 +12,10 @@ const Product = () => {
 
   const getData = async () => {
     try {
-      let url = "http://localhost:5000/product/list";
+      let url = `${API_URL}/product/list`;
 
       if (categoryId) {
-        url = `http://localhost:5000/product/by/category?id=${categoryId}`;
+        url = `${API_URL}/product/by/category?id=${categoryId}`;
       }
 
       const response = await fetch(url, {

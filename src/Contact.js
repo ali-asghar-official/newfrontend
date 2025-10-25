@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './Contact.css'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
+import { API_URL } from './config'
 
 const Contact = () => {
 
@@ -40,7 +41,7 @@ const fileChange = async (event)=>{
  const formData = new FormData()
  formData.append('image',file)
 
- const response = await fetch('http://localhost:5000/image/upload',{
+ const response = await fetch(`${API_URL}/image/upload`,{
     method:"POST",
     body: formData,
  });
@@ -61,7 +62,7 @@ const saveHandler = async(event)=>{
 if(product.name){
  
 try {
-  const response = await fetch('http://localhost:5000/product/update?id='+product._id,{
+  const response = await fetch(`${API_URL}/product/update?id=`+product._id,{
     method: 'PUT',
     body:JSON.stringify({name,price,category,brand,detail,preview}),
     headers:{'Content-Type':'application/json'}
@@ -75,7 +76,7 @@ try {
 }
 }else{
     try {
-    const response = await fetch('http://localhost:5000/product/add',{
+  const response = await fetch(`${API_URL}/product/add`,{
     method:'POST',
     body:JSON.stringify({name,price,category,brand,detail,preview}),
     headers:{'Content-Type':'application/json'}
@@ -106,7 +107,7 @@ const id = params.get('id')
 
 const getSingleProduct = async()=>{
 
-  const response = await fetch('http://localhost:5000/product/single?id='+id,{
+  const response = await fetch(`${API_URL}/product/single?id=`+id,{
     method: 'GET',
     headers:{'Content-Type':'application/json'}
   })
@@ -130,7 +131,7 @@ useEffect(()=>{
 
 
 const getCategories = async()=>{
-const response = await fetch('http://localhost:5000/receive/category',{
+const response = await fetch(`${API_URL}/receive/category`,{
   method:'GET',
   headers:{'Content-Type':'application/json'}
 
@@ -144,7 +145,7 @@ useEffect(()=>{
 
 
 const getBrand = async()=>{
-const response = await fetch('http://localhost:5000/receive/brand',{
+const response = await fetch(`${API_URL}/receive/brand`,{
   method:'GET',
   headers:{'Content-Type':'application/json'}
 

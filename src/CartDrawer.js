@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import './CartDrawer.css';
 import { CartContext } from './CartContext';
+import { API_URL } from './config'
 import { useNavigate } from 'react-router-dom';
 
 const CartDrawer = () => {
@@ -39,7 +40,7 @@ const CartDrawer = () => {
           <div>
             {cart.map((item, index) => (
               <div key={index} className="cart-item">
-                <img src={(item.image && item.image.startsWith('http')) ? item.image : ("http://localhost:5000/" + item.image)} alt={item.name} />
+                <img src={(item.image && item.image.startsWith('http')) ? item.image : (`${API_URL}/` + item.image)} alt={item.name} />
                 <div style={{ flex: 1 }}>
                   <p>{item.name}</p>
                   <p>Rs. {item.price}</p>

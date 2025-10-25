@@ -3,6 +3,7 @@ import "./AdminHome.css";
 import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from './AuthContext'
+import { API_URL } from './config'
 
 function AdminHome() {
 
@@ -44,22 +45,22 @@ const navigate = useNavigate();
     const loadStats = async () => {
       // products
       const productsResp = await tryFetch([
-        'http://localhost:5000/api/products/list',
-        'http://localhost:5000/product/list'
+        `${API_URL}/api/products/list`,
+        `${API_URL}/product/list`
       ])
 
       // users
       const usersResp = await tryFetch([
-        'http://localhost:5000/api/users/list',
-        'http://localhost:5000/users/list',
-        'http://localhost:5000/user/list'
+        `${API_URL}/api/users/list`,
+        `${API_URL}/users/list`,
+        `${API_URL}/user/list`
       ])
 
       // orders
       const ordersResp = await tryFetch([
-        'http://localhost:5000/api/orders/list',
-        'http://localhost:5000/orders/list',
-        'http://localhost:5000/order/list'
+        `${API_URL}/api/orders/list`,
+        `${API_URL}/orders/list`,
+        `${API_URL}/order/list`
       ])
 
         // fallback: read orders/users from localStorage if backend not available

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import './CategoryGrid.css';
+import { API_URL } from './config'
 
 const CategoryGrid = () => {
   const [catList, setCatList] = useState([]);
@@ -8,7 +9,7 @@ const CategoryGrid = () => {
 
   const getCatList = async () => {
     try {
-      const response = await fetch('http://localhost:5000/category/list', {
+  const response = await fetch(`${API_URL}/category/list`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
       });
@@ -38,7 +39,7 @@ const CategoryGrid = () => {
           className='category-item'
         >
           <div>
-            <img src={`http://localhost:5000/${item.image}`} alt='category_pics'/>
+            <img src={`${API_URL}/${item.image}`} alt='category_pics'/>
           </div>
           <div>
             <p className='title'>{item.title}</p>

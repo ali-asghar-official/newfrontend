@@ -4,6 +4,7 @@ import { RxUpdate } from "react-icons/rx";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom'
+import { API_URL } from './config'
 
 const ProductList = () => {
   const [products, setProducts] = useState([])
@@ -11,7 +12,7 @@ const ProductList = () => {
 
   const getProducts = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/products/list', {
+  const response = await fetch(`${API_URL}/api/products/list`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
       })
@@ -33,7 +34,7 @@ const ProductList = () => {
   if (!window['confirm']('Are you sure you want to delete this product?')) return
 
     try {
-      const response = await fetch('http://localhost:5000/api/products/delete?id=' + item._id, {
+  const response = await fetch(`${API_URL}/api/products/delete?id=` + item._id, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
       })
@@ -71,7 +72,7 @@ const ProductList = () => {
 
           <tbody>
             {products.map((item) => {
-              const imageUrl = item?.image ? `http://localhost:5000/${item.image}` : null
+              const imageUrl = item?.image ? `${API_URL}/${item.image}` : null
               const categoryLabel = item?.category?.title || item?.category || '-'
               return (
                 <tr className='table_row' key={item._id}>

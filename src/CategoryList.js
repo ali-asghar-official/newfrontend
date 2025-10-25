@@ -5,6 +5,7 @@ import { RxUpdate } from "react-icons/rx";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { API_URL } from './config'
 
 const CategoryList = () => {
 
@@ -15,7 +16,7 @@ const getCategories = async()=>{
 
 try {
 
-const response = await fetch('http://localhost:5000/category/list',{
+const response = await fetch(`${API_URL}/category/list`,{
     method: 'GET',
     headers: {'Content-Type': 'application/json'}
 })
@@ -44,7 +45,7 @@ const navigateHandler = (id)=>{
 
 const deleteCategory = async(item)=>{
 
-  const response = await fetch('http://localhost:5000/category/delete?id='+item._id,{
+  const response = await fetch(`${API_URL}/category/delete?id=`+item._id,{
     method: 'DELETE',
     headers: {'Content-Type': 'application/json'}
   })
@@ -77,7 +78,7 @@ window.location.reload();
     {list.map((item,index)=>{
         return <tr className='cat-row'>
         <td className='cat-id'>{item._id}</td>
-        <td className='cat-image'><img src={'http://localhost:5000/'+item.image} alt='category-pics' /></td>
+  <td className='cat-image'><img src={`${API_URL}/${item.image}`} alt='category-pics' /></td>
         <td>{item.title}</td>
         <td>{new Date(item.createdAt).toLocaleDateString()}</td>
         <tr>

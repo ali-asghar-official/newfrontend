@@ -3,6 +3,7 @@ import './ProductDetail.css'
 import { FaStar } from "react-icons/fa";
 import toast from 'react-hot-toast'
 import { CartContext } from './CartContext'
+import { API_URL } from './config'
 import { useLocation } from 'react-router-dom'
 
 const ProductDetail = () => {
@@ -35,7 +36,7 @@ const getProduct = async () => {
     setLoading(true)
     setError(null)
     try {
-            const response = await fetch('http://localhost:5000/product/single?id=' + id, {
+            const response = await fetch(`${API_URL}/product/single?id=${id}`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
         })
@@ -74,15 +75,15 @@ if (!product) return <div>Product not found.</div>
     <div className='productdisplay'>
 <div className='productdisplay-left'>
 <div className='productdisplay-img-list'>
-<img src={'http://localhost:5000/'+product.image} alt='Here is an image1'/>
-<img src={'http://localhost:5000/'+product.image} alt='Here is an image2'/>
-<img src={'http://localhost:5000/'+product.image} alt='Here is an image3'/>
-<img src={'http://localhost:5000/'+product.image} alt='Here is an image4'/>
+<img src={`${API_URL}/${product.image}`} alt='Here is an image1'/>
+<img src={`${API_URL}/${product.image}`} alt='Here is an image2'/>
+<img src={`${API_URL}/${product.image}`} alt='Here is an image3'/>
+<img src={`${API_URL}/${product.image}`} alt='Here is an image4'/>
 </div>
 
 <div className='productdisplay-img'>
 
-    <img className='productdisplay-main-img' src={'http://localhost:5000/'+product.image} alt='Here is an image4'/>
+    <img className='productdisplay-main-img' src={`${API_URL}/${product.image}`} alt='Here is an image4'/> 
 
 </div>
 

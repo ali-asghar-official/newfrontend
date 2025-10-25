@@ -3,6 +3,7 @@ import './Category.css'
 import {useState,useEffect} from 'react'
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from './config'
 
 const Brand = () => {
 
@@ -22,7 +23,7 @@ const fileChange = async(event)=>{
         const formData = new FormData()
         formData.append('image',file)
 
-        const response = await fetch('http://localhost:5000/image/upload',{
+    const response = await fetch(`${API_URL}/image/upload`,{
             method: 'POST',
             body:formData
         })
@@ -40,7 +41,7 @@ const saveHandler = async(event)=>{
     event.preventDefault()
 try {
     
-    const response = await fetch('http://localhost:5000/brand/add',{
+  const response = await fetch(`${API_URL}/brand/add`,{
         method:'POST',
         body:JSON.stringify({title,file}),
         headers:{'Content-Type':'application/json'}
@@ -65,7 +66,7 @@ const id = params.get('id')
 // Fetch single brand by id
 const getSingleBrand = async () => {
   try {
-    const response = await fetch(`http://localhost:5000/brand/single?id=${id}`, {
+  const response = await fetch(`${API_URL}/brand/single?id=${id}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     });
@@ -74,7 +75,7 @@ const getSingleBrand = async () => {
     console.log(result);
        setTitle(result.findedBrand.title);
       setFile(result.findedBrand.image);
-      setPreview(`http://localhost:5000/${result.file}`); // update preview
+  setPreview(`${API_URL}/${result.file}`); // update preview
   } catch (error) {
     console.log(error);
   }
@@ -83,7 +84,7 @@ const getSingleBrand = async () => {
 // Update brand
 const updateBrand = async () => {
   try {
-    const response = await fetch(`http://localhost:5000/brand/update?id=${id}`, {
+  const response = await fetch(`${API_URL}/brand/update?id=${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title, file })
@@ -123,9 +124,9 @@ e.preventDefault(); // prevent page reload
       <div className='Category-items'>
         <input value={title} onChange={titleChange} placeholder='Enter Brand Name' type='text'></input>
         <input onChange={fileChange} type='file'></input>
-        <div className='cat-preview'>
-            <img src={'http://localhost:5000/'+file}/>
-        </div>
+    <div className='cat-preview'>
+      <img src={`${API_URL}/${file}`} alt='brand-preview' />
+    </div>
         <button>Save Brand</button>
       </div>
 </form>

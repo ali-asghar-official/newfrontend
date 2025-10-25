@@ -4,6 +4,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import {useEffect,useState} from 'react'
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from './config'
 
 
 
@@ -18,7 +19,7 @@ const getBrands = async()=>{
 
 try {
 
-const response = await fetch('http://localhost:5000/brand/list',{
+const response = await fetch(`${API_URL}/brand/list`,{
     method: 'GET',
     headers: {'Content-Type': 'application/json'}
 })
@@ -42,7 +43,7 @@ getBrands()
 
 const deleteBrand = async(item)=>{
 
-  const response = await fetch('http://localhost:5000/brand/delete?id='+item._id,{
+  const response = await fetch(`${API_URL}/brand/delete?id=`+item._id,{
     method: 'DELETE',
     headers: {'Content-Type': 'application/json'}
   })
@@ -79,7 +80,7 @@ const navigateHandler = (id)=>{
         {list.map((item,index)=>{
             return <tr className='cat-row'>
             <td className='cat-id'>{item._id}</td>
-            <td className='cat-image'><img src={'http://localhost:5000/'+item.image} alt='category-pics' /></td>
+            <td className='cat-image'><img src={`${API_URL}/${item.image}`} alt='category-pics' /></td>
             <td>{item.title}</td>
             <td>{new Date(item.createdAt).toLocaleDateString()}</td>
             <tr>

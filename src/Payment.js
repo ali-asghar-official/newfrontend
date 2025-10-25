@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import './Payment.css'
 import { CartContext } from './CartContext'
 import { AuthContext } from './AuthContext'
+import { API_URL } from './config'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 
@@ -59,9 +60,9 @@ const Payment = () => {
       }
 
       const posted = await tryPost([
-        'http://localhost:5000/api/orders/add',
-        'http://localhost:5000/orders/add',
-        'http://localhost:5000/order/add'
+        `${API_URL}/api/orders/add`,
+        `${API_URL}/orders/add`,
+        `${API_URL}/order/add`
       ])
 
       if (!posted) {

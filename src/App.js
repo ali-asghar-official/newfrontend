@@ -39,7 +39,11 @@ function App() {
         <Route path='/BrandGrid' element={<BrandGrid/>}/>
         <Route path='/Brand' element={<Brand/>}/>
         <Route path='/CategoryList' element={<CategoryList/>}/>
-        <Route path='/ProductDetail' element={<ProductDetail/>}/>
+        <Route path='/ProductDetail' element={
+          <ProtectedRoute>
+            <ProductDetail />
+          </ProtectedRoute>
+        }/>
         <Route path='/BrandList' element={<BrandList/>}/>
         <Route path='/TodoList' element={<TodoList/>}/>
         <Route path='/DescriptionBox' element={<DescriptionBox/>}/>
@@ -49,11 +53,7 @@ function App() {
         <Route path='/AdminHome' element={<AdminHome/>}/>
 
         {/* ✅ Protected Customer Home */}
-        <Route path='/' element={
-          <ProtectedRoute role="customer">
-            <Home/>
-          </ProtectedRoute>
-        }/>
+        <Route path='/' element={<Home/>} />
 
         {/* ✅ Protected Admin Dashboard */}
         <Route path='/DBoard' element={

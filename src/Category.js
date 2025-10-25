@@ -3,6 +3,7 @@ import './Category.css'
 import {useState,useEffect} from 'react'
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from './config'
 
 
 const Category = () => {
@@ -24,7 +25,7 @@ const fileChange = async(event)=>{
         const formData = new FormData()
         formData.append('image',file)
 
-        const response = await fetch('http://localhost:5000/image/upload',{
+  const response = await fetch(`${API_URL}/image/upload`,{
             method: 'POST',
             body:formData
         })
@@ -42,7 +43,7 @@ const saveHandler = async(event)=>{
     event.preventDefault()
 try {
     
-    const response = await fetch('http://localhost:5000/category/add',{
+  const response = await fetch(`${API_URL}/category/add`,{
         method:'POST',
         body:JSON.stringify({title,file}),
         headers:{'Content-Type':'application/json'}
@@ -67,7 +68,7 @@ const id = params.get('id')
 // Fetch single category by id
 const getSingleCat = async () => {
   try {
-    const response = await fetch(`http://localhost:5000/category/single?id=${id}`, {
+  const response = await fetch(`${API_URL}/category/single?id=${id}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     });
@@ -86,7 +87,7 @@ const getSingleCat = async () => {
 // Update category
 const updateCategory = async () => {
   try {
-    const response = await fetch(`http://localhost:5000/category/update?id=${id}`, {
+  const response = await fetch(`${API_URL}/category/update?id=${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title, file })
@@ -125,9 +126,9 @@ e.preventDefault(); // prevent page reload
       <div className='Category-items'>
         <input value={title} onChange={titleChange} placeholder='Enter Category Name' type='text'></input>
         <input onChange={fileChange} type='file'></input>
-        <div className='cat-preview'>
-            <img src={'http://localhost:5000/'+data.image}/>
-        </div>
+    <div className='cat-preview'>
+      <img src={`${API_URL}/${data.image}`} alt='category-preview'/>
+    </div>
         <button>Save category</button>
       </div>
 </form>

@@ -6,6 +6,7 @@ import { MdDelete } from "react-icons/md";
 import { FaPencilAlt } from "react-icons/fa";
 import {useState,useEffect} from 'react'
 import { toast } from 'react-hot-toast';
+import { API_URL } from './config'
 
 
 
@@ -25,7 +26,7 @@ const TodoList = () => {
 const addTodo = async (event) => {
   event.preventDefault();
 
-      const response = await fetch("http://localhost:5000/todo/add",{
+  const response = await fetch(`${API_URL}/todo/add`,{
         method: "POST",
         body: JSON.stringify({title}),
         headers: {"Content-Type": "application/json"}
@@ -45,14 +46,14 @@ useEffect(() => {
 
   const fetchTodos = async () => {
    
-      const response = await fetch("http://localhost:5000/receive/todo");
+  const response = await fetch(`${API_URL}/receive/todo`);
       const data = await response.json();
       setTodos(data);
 }
 
 
 const deleteTodo = async (todo) => {
-  await fetch(`http://localhost:5000/todo/${todo._id}`, {
+  await fetch(`${API_URL}/todo/${todo._id}`, {
     method: "DELETE",
   });
 
@@ -60,7 +61,7 @@ const deleteTodo = async (todo) => {
 };
 
 const updateTodo = async (id, newTitle) => {
-  await fetch(`http://localhost:5000/todo/${id}`, {
+  await fetch(`${API_URL}/todo/${id}`, {
     method: "PUT",
     body: JSON.stringify({ title: newTitle }),
     headers: { "Content-Type": "application/json" },

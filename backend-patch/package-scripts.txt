@@ -1,0 +1,8 @@
+# Add or update these scripts in your backend `package.json` under "scripts":
+
+"scripts": {
+  "start": "node server.js",
+  "dev": "nodemon server.js"
+}
+
+# Railway will run `npm start` by default.

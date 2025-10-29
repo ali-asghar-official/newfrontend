@@ -17,7 +17,7 @@ const cors = require('cors')
 const app = express()
 
 // Use environment variables
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://aasghar:Ali*786786@cluster0.dygjva1.mongodb.net/?appName=Cluster0'
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://aliasghar:Ali786786@cluster0.dygjva1.mongodb.net/ecommerce?retryWrites=true&w=majority'
 const PORT = process.env.PORT || 5000
 const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || '*'
 
